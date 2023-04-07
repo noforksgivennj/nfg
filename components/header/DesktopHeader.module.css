@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    height: var(--header-height);
+    position: fixed;
+    width: 100%;
+    left:0;
+    right:0;
+    top:0;
+    overflow:hidden;
+    z-index: 20;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 4vw;
+    align-items: center;
+}
+
+.containerFlexLeft{
+    width: max-content;
+    display: flex;
+
+}
+.containerFlexRight{
+    width: max-content;
+    display: flex;
+}
+
+

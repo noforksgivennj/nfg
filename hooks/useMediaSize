@@ -1,0 +1,15 @@
+import { useState, useEffect } from "react";
+export default function useMediaSize(){
+    const [mediaWidth, setMediaWidth] = useState(0)
+    const [mediaHeight, setMediaHeight] = useState(0)
+    useEffect(()=>{
+        window.addEventListener('resize', () => setMediaWidth(window.innerWidth))
+        return () =>{
+            window.removeEventListener('resize', () => setMediaWidth(window.innerWidth))
+        }
+    }, [])
+    if (mediaWidth > 992) return "desktop"
+    
+    return "mobile"
+
+}
