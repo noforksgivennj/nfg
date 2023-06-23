@@ -4,7 +4,6 @@ export default function DesktopHeader({left , right , background}){
         <div className={styled.container} style={{background:background}}>
           <div className={styled.containerFlexLeft}>{left}</div>
           <div className={styled.containerFlexRight}>{right}</div>
-
         </div>
     )
 }

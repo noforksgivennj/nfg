@@ -6,68 +6,39 @@ import LogoNFG from '../../Logo/LogoNFG'
 import { useThemeStore } from '../../../store/useThemeStore'
 import MobileMenu from '../../menu/MobileMenu'
 import DesktopHeader from '../../header/DesktopHeader'
-import Link from 'next/link'
 import { Rotate as Hamburger } from 'hamburger-react'
 import Image from 'next/image'
+import Link from 'next/link'
 const contentful = require('contentful')
-
-
 export default function Main({ children }) {
   const theme = useThemeStore()
   const [menuOpen, setMenuOpen] = useState(false)
   const [media, setMedia] = useState('mobile')
+  const [data, setData] = useState()
+  useEffect(() => {
+    (window.innerWidth > 992) ? setMedia('desktop') : setMedia('mobile')
+  })
+  const LocalPages = [
+    {
+      title: 'Menu',
+      url: '/menu'
+    },
+    {
+      title: 'Restaurant',
+      url: '/restaurant'
+    },
+    {
+      title: '(201) 260-0364',
+      url: "tel:+12013600364"
+    },
 
-  const [data , setData] = useState()
-
-  
-
-const client = contentful.createClient({
-  space: 'vryryxwbv6r1',
-  environment: 'master', // defaults to 'master' if not set
-  accessToken: 'iELaU9bgW1qLMPIPWOr3Z2vCl8iXk3ADMFtsOJvE0TM'
-})
-
-
-
-  useEffect(()=>{
-   ( window.innerWidth > 992) ? setMedia('desktop') : setMedia('mobile')
-
-   client.getEntry('6XBuhTs8Qgc01n6GoBnLSG')
-.then((entry) => setData(entry))
-.catch(console.error)
-  },[])
-
+  ]
+  const handleCloseMobileMenu = () => {
+    setMenuOpen(false)
+  }
   console.log(data)
-  
-
-  const testLocalPages = [
-    {
-      title: 'About', 
-      url: './About'
-    },
-    {
-      title: 'Example One', 
-      url: './example-one'
-    },
-    {
-      title: 'Example Two', 
-      url: './example-one'
-    },
-    {
-      title: 'Example Three', 
-      url: './example-one'
-    },
-    
-  
-]
-
-
-console.log(data)
   return (
-
-<>
-
-    
+    <>
       {media === 'mobile' ?
         <div>
           <MobileHeader
@@ -85,32 +56,24 @@ console.log(data)
             />
             }
           />
-          <MobileMenu isOpen={menuOpen} />
+          <MobileMenu isOpen={menuOpen}>
+            {LocalPages.map((val, key) => <Link href={val.url}><h2 className={styled.mobileH2} key={key}>{val.title}</h2></Link>)}
+          </MobileMenu>
         </div>
-
         :
-
         <div>
-          <DesktopHeader 
-          background={theme.blue}
-          right={
-            testLocalPages.map((val,key)=> <Link className={styled.menuLinksYellow} href={val.url}>{val.title}</Link>)
-          }
-          left={<LogoNFG height={50} width={100} />}
+          <DesktopHeader
+            background={theme.blue}
+            right={
+              LocalPages.map((val, key) => <Link className={styled.menuLinksYellow} href={val.url}>{val.title}</Link>)
+            }
+            left={<LogoNFG height={50} width={100} />}
           />
         </div>
       }
       <div className={styled.body}>
         {children}
       </div>
-
-      <div>
-        {/* <Image width={300} height={300} src={{`https://${data?.fields.specialPhotos[0].fields.file.url}`} /> */}
-        {data?.fields.seasonalSpecials}
-      </div>
     </>
-
-
   )
 }
-

@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@simplepdf/react-embed-pdf": "^1.4.0",
     "contentful": "^9.3.5",
+    "google-map-react": "^2.2.1",
     "hamburger-react": "^2.5.0",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-pdf": "^7.1.2",
     "react-responsive-carousel": "^3.2.23",
     "yarn": "^1.22.19",
     "zustand": "^4.3.7"

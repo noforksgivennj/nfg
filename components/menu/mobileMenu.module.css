@@ -1,34 +1,44 @@
 .containerOpen{
-    min-height: calc(100vh - 46px);
-    position:absolute;
-    z-index: 20;
-    margin-top: 40px;
-    
+    min-height: calc(100vh);
+    position:fixed;
     left: 0;
     right: 0;
     background-color: var(--gold);
     animation: fade-in .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    overflow: hidden;
+    display: flex;
+    padding: 4rem 0;
 }
 .containerClose{
-    height: calc(100vh - 64px);
-    position:absolute;
-    background-color: var(--gold);
+  min-height: calc(100vh);
+  position:fixed;
+  left: 0;
+  right: 0;
+  background-color: var(--gold);
+  animation: fade-in .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  overflow: hidden;
+  display: flex;
+  padding: 4rem 0;
     animation: fade-out .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-
 @keyframes fade-in {
     0% {
       opacity: 0;
+      display: none;
     }
     100% {
       opacity: 1;
+      display: block;
     }
   }
 @keyframes fade-out {
     0% {
       opacity: 1;
+      display: block;
     }
     100% {
       opacity: 0;
+      display: none
+
     }
   }

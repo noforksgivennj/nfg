@@ -3,7 +3,7 @@
     left:0;
     right:0;
     z-index: 10;
-    height: 4rem;
+    padding: 0 8px;
     min-width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

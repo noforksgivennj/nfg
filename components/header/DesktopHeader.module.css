@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    height: var(--header-height);
+    height: 4rem;
     position: fixed;
     width: 100%;
     left:0;
