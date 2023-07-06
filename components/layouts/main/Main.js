@@ -28,7 +28,7 @@ export default function Main({ children }) {
       url: '/restaurant'
     },
     {
-      title: '(201) 260-0364',
+      title: '(201) 360-0364',
       url: "tel:+12013600364"
     },
 
