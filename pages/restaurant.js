@@ -19,7 +19,7 @@ export default function restaurant() {
                 </address>
 
                 <h2>Phone</h2>
-                <a href="tel:+12013600364">(201) 260-0364</a>
+                <a href="tel:+12013600364">(201) 360-0364</a>
 
             </div>
         </Main>
