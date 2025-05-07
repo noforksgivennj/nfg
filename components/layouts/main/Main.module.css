@@ -6,8 +6,12 @@
 }
 
 .mobileH2{
-  font-size: 10vw;
+  font-size: 3rem;
   max-width: fit-content;
+  padding-left: 2rem;
+}
+.mobileH2:hover{
+  color:  #434589;
 }
 
 
